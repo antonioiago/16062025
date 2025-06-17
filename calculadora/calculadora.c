@@ -1,49 +1,77 @@
 #include <stdio.h>
-#include <stdlib.h>
+int soma(int a, int b) {
+    return a + b;
+}
 
-float soma(float a, float b);
-float subtracao(float a, float b);
-float multiplicacao(float a, float b);
-float divisao(float a, float b);
+int subtracao(int a, int b) {
+    return a - b;
+}
 
-void main() {
-    float num1, num2, resultado;
+int multiplicacao(int a, int b) {
+    return a * b;
+}
+
+int divisao(int a, int b) {
+    if (b == 0) {
+        printf("\nNão é possível dividir por zero.\n");
+        return 0;
+    }
+    return a / b;
+}
+
+int main() {
+    int numero1, numero2, resultado;
     char operacao;
     char continuar;
-    printf("Bem-vindo à Calculadora!\n");
-inicio:
-    printf("\nDigite o primeiro número: ");
-    scanf("%f", &num1);
-    printf("\nEscolha a operação:\n");
-    printf("a - Adição\n");
-    printf("s - Subtração\n");
-    printf("m - Multiplicação\n");
-    printf("d - Divisão\n");
-    printf("Operação: ");
-    scanf(" %c", &operacao);
-    printf("\nDigite o segundo número: ");
-    scanf("%f", &num2);
-    if (operacao == 'a') {
-        resultado = soma(num1, num2);
-        printf("\nResultado: %f\n", resultado);
-    } else if (operacao == 's') {
-        resultado = subtracao(num1, num2);
-        printf("\nResultado: %f\n", resultado);
-    } else if (operacao == 'm') {
-        resultado = multiplicacao(num1, num2);
-        printf("\nResultado: %f\n", resultado);
-    } else if (operacao == 'd') {
-        resultado = divisao(num1, num2);
-        printf("\nResultado: %f\n", resultado);
-    } else {
-        printf("\nOperação inválida!\n");
-    }
-    printf("\nQuer fazer outro cálculo? (Digite 'q' para sair ou qualquer outra tecla para continuar): ");
-    scanf(" %c", &continuar);
 
-    if (continuar == 'q') {
-        printf("\nSaindo\n");
-    } else {
-        goto inicio;
-    }
+    printf("A calculadora ja pode ser utilizada.\n");
+
+    do {
+        printf("\nInsira um número: ");
+        scanf("%d", &numero1);
+
+        printf("\nEscolha a operação que a calculadora deve utilizar:\n");
+        printf("A - Adição\n");
+        printf("S - Subtração\n");
+        printf("M - Multiplicação\n");
+        printf("D - Divisão\n");
+        printf("Operação: ");
+        scanf(" %c", &operacao);
+
+        printf("\nInsira outro número: ");
+        scanf("%d", &numero2);
+
+        switch (operacao) {
+            case 'A':
+            case 'a':
+                resultado = soma(numero1, numero2);
+                printf("\nO resultado é: %d\n", resultado);
+                break;
+            case 'S':
+            case 's':
+                resultado = subtracao(numero1, numero2);
+                printf("\nO resultado é: %d\n", resultado);
+                break;
+            case 'M':
+            case 'm':
+                resultado = multiplicacao(numero1, numero2);
+                printf("\nO resultado é: %d\n", resultado);
+                break;
+            case 'D':
+            case 'd':
+                resultado = divisao(numero1, numero2);
+                printf("\nO resultado é: %d\n", resultado);
+                break;
+            default:
+                printf("\nOperação inválida!\n");
+                break;
+        }
+
+        printf("\nVocê deseja fazer outro cálculo? (Digite q para sair ou qualquer outra tecla para continuar): ");
+        scanf(" %c", &continuar);
+
+    } while (continuar != 'q' && continuar != 'Q');
+
+    printf("\nSaindo da calculadora\n");
+    return 0;
 }
