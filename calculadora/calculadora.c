@@ -10,7 +10,7 @@ void main() {
     float num1, num2, resultado;
     char operacao;
     char continuar;
-    printf("Bem-vindo(a) à Calculadora!\n");
+    printf("Bem-vindo à Calculadora!\n");
 inicio:
     printf("\nDigite o primeiro número: ");
     scanf("%f", &num1);
@@ -38,11 +38,11 @@ inicio:
     } else {
         printf("\nOperação inválida!\n");
     }
-    printf("\nDeseja fazer outro cálculo? (Digite 'q' para sair ou qualquer outra tecla para continuar): ");
+    printf("\nQuer fazer outro cálculo? (Digite 'q' para sair ou qualquer outra tecla para continuar): ");
     scanf(" %c", &continuar);
 
     if (continuar == 'q') {
-        printf("\nSaindo...\n");
+        printf("\nSaindo\n");
     } else {
         goto inicio;
     }
