@@ -14,7 +14,7 @@ float multiplicacao(float a, float b) {
 }
 
 float divisao(float a, float b) {
-    if (b != 0)
+    if (b == 0)
         return a / b;
     else {
         printf("\nDivisão por zero não funciona\n");
